@@ -1,18 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NZWalks.API.Models.domain;
+using Appointments.Models.domain;
 
-namespace NZWalks.API.Data
+namespace Appointments.Data
 {
-    public class AppointmentsDbContext: DbContext
+    public class AppointmentsDbContext(DbContextOptions dbContextOptions) : DbContext(dbContextOptions)
     {
-        public AppointmentsDbContext(DbContextOptions dbContextOptions): base(dbContextOptions)
-        {
-
-            
-        }
-        public DbSet<Difficulty> Difficulties{ get; set; }
-        public DbSet<Region> Regions { get; set; }
-        public DbSet<Walk> Walks { get; set; }
+        public DbSet<Appointment> Appointments{ get; set; }
+        public DbSet<Customer> Customers { get; set; }
+        public DbSet<Vehicle> Vehicles { get; set; }
 
     }
 }
